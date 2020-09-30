@@ -1,0 +1,13 @@
+.content {
+    grid-area: c;
+    background-color: gray;
+    height: 550px;
+}
+
+.content img {
+    width: 700px;
+    background: center;
+    /*display:block;*/
+    margin: auto;
+    height: 200px;
+}
