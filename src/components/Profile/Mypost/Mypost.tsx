@@ -2,7 +2,17 @@ import React from "react";
 import s from "./Mypost.module.css";
 import {Post} from "./Post/Post";
 
+let posts = [
+    {id: 1, message: "You", likesCount: 2},
+    {id: 2, message: "Eeee", likesCount: 7},
+    {id: 3, message: "Youu", likesCount: 10},
+    {id: 4, message: "Esss", likesCount: 13}
+]
+
 export const Mypost = () => {
+
+    let postsElement = posts.map( p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
+
     return (
         <div className={s.content}>
             <h3>My post</h3>
@@ -13,8 +23,7 @@ export const Mypost = () => {
                 </div>
             </div>
             <div>
-                <Post message="You" likesCount="2"/>
-                <Post message="Den" likesCount="10"/>
+                {postsElement}
             </div>
         </div>
     )

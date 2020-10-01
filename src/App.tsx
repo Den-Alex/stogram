@@ -12,8 +12,8 @@ function App() {
             <div className="App">
                 <Header/>
                 <Navbar/>
-                <Route path="/profile" component={Profile}/>
-                <Route path="/dialogs" component={Dialogs}/>
+                <Route path="/profile" render={ () => <Profile/>}/>
+                <Route path="/dialogs" render={ () => <Dialogs/>}/>
             </div>
         </BrowserRouter>
     );

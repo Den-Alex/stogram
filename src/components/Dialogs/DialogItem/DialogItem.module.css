@@ -1,0 +1,7 @@
+.dialogs {
+    display: grid;
+    background-color: gray;
+    height: 500px;
+    grid-template-columns: 2fr 10fr;
+    padding: 10px;
+}
