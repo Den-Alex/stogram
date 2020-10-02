@@ -1,25 +1,27 @@
 import React from "react";
 import s from "./Mypost.module.css";
 import {Post} from "./Post/Post";
+import {PostPropsType} from "../Profile";
 
-let posts = [
-    {id: 1, message: "You", likesCount: 2},
-    {id: 2, message: "Eeee", likesCount: 7},
-    {id: 3, message: "Youu", likesCount: 10},
-    {id: 4, message: "Esss", likesCount: 13}
-]
 
-export const Mypost = () => {
+export const Mypost = (props: PostPropsType) => {
 
-    let postsElement = posts.map( p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
+    let postsElement = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
+
+    let newPostElement = React.createRef<HTMLTextAreaElement>();
+    let addPost = () => {
+        if (newPostElement.current) {
+        props.addPost(newPostElement.current.value);
+    }
+    }
 
     return (
         <div className={s.content}>
             <h3>My post</h3>
             <div>
-                <textarea></textarea>
+                <textarea ref={newPostElement}></textarea>
                 <div>
-                    <button>Add</button>
+                    <button onClick={addPost}>Add</button>
                 </div>
             </div>
             <div>
